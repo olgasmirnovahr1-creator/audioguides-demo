@@ -1,0 +1,12 @@
+{
+  "name": "АудиоМосква — аудиоэкскурсии",
+  "short_name": "АудиоМосква",
+  "lang": "ru",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6f2",
+  "theme_color": "#1f5a40",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

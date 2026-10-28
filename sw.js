@@ -6,7 +6,7 @@
   ВАЖНО: после изменения файлов сайта увеличь номер версии ниже (v2 → v3 и т. д.),
   иначе телефоны туристов будут показывать старую версию.
 */
-const VERSION = "v11";
+const VERSION = "v12";
 const SHELL = "shell-" + VERSION;
 const SHELL_FILES = [
   "./",
@@ -76,10 +76,13 @@ self.addEventListener("fetch", (event) => {
       (req.mode === "navigate" ? await caches.match("index.html") : undefined);
 
     const isShell = SHELL_FILES.some((f) => url.pathname.endsWith("/" + f) || (f === "./" && url.pathname.endsWith("/")));
-    if (hit && isShell) {
-      // Показываем сохранённое сразу, а в фоне обновляем на свежую версию
-      fetch(req).then((res) => { if (res.ok) caches.open(SHELL).then((c) => c.put(req, res)); }).catch(() => {});
-      return hit;
+    if (isShell || req.mode === "navigate") {
+      // Сайт: сначала пробуем свежую версию из сети (не дольше 3 секунд), без сети — сохранённую
+      try {
+        const res = await Promise.race([fetch(req), new Promise((_, no) => setTimeout(() => no(new Error("долго")), 3000))]);
+        if (res.ok) { const copy = res.clone(); caches.open(SHELL).then((c) => c.put(req, copy)); return res; }
+      } catch (e) { /* нет сети — берём сохранённое */ }
+      if (hit) return hit;
     }
     if (hit) return req.headers.get("range") ? partial(req, hit) : hit;
     return fetch(req);

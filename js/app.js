@@ -154,9 +154,16 @@
         return await r.json();
       } catch (e) { return { ok: false, error: "offline" }; }
     }
-    // Без сервера — тестовый список
+    // Без сервера — тестовый список. Код может храниться не открыто, а «отпечатком» (hash),
+    // чтобы его нельзя было подсмотреть в файле.
     const c = cleanCode(input);
-    const found = (window.TEST_CODES || []).find((x) => cleanCode(x.code) === c);
+    let digest = "";
+    try {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(c));
+      digest = Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
+    } catch (e) { /* без https отпечаток не посчитать — сработают только открытые коды */ }
+    let found = (window.TEST_CODES || []).find((x) => (x.code && cleanCode(x.code) === c) || (x.hash && x.hash === digest));
+    if (found && !found.code) found = { ...found, code: c };
     if (!found) return { ok: false, error: "notfound" };
     if (found.test === "devices") return { ok: false, error: "devices" };
     if (found.test === "used") return { ok: false, error: "used" };
@@ -301,7 +308,7 @@
 
   function renderCode(tourId) {
     const t = tour(tourId);
-    const tests = (window.TEST_CODES || []).map((c) => `<li><code>${esc(c.code)}</code> — ${esc(codeLabel(c))}</li>`).join("");
+    const tests = (window.TEST_CODES || []).filter((c) => c.code).map((c) => `<li><code>${esc(c.code)}</code> — ${esc(codeLabel(c))}</li>`).join("");
     return `${header(t ? "#/t/" + t.id : "#/my")}
       <h1>Ввести код</h1>
       <p class="lead">${t ? `Код к экскурсии «${esc(t.title)}»: из письма после покупки, подарочный или абонемент.` : "Код из письма после покупки, подарочный код или абонемент."}</p>
@@ -313,7 +320,7 @@
       </form>
       <p class="notice left">Срок доступа начинается с первого ввода кода. Один код работает на ${DEVICE_LIMIT} телефонах.</p>
       <button class="link-btn" data-go="#/restore">Потеряли код? Восстановить покупки</button>
-      ${serverMode ? "" : `<details class="test-codes"><summary>Тестовые коды — только для проверки</summary><ul>${tests}</ul></details>`}`;
+      ${serverMode || !tests ? "" : `<details class="test-codes"><summary>Тестовые коды — только для проверки</summary><ul>${tests}</ul></details>`}`;
   }
 
   function renderRestore() {

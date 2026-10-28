@@ -260,3 +260,5 @@ h2 { font-size: 17px; }
 }
 .q-option:hover { border-color: var(--green); }
 .q-option.wrong { border-color: var(--bad); color: var(--bad); opacity: .7; text-decoration: line-through; cursor: default; }
+
+.code-home { display: block; width: 100%; margin-top: 10px; }

@@ -1,14 +1,14 @@
 /* Макет: узкая «телефонная» колонка; главная — плитки 2 в ряд, страницы — карточки и схема маршрута.
-   Цвета: бульварная зелень + охра московских фасадов. */
+   Цвета: олива + горчичная охра, тёплый светлый фон. */
 :root {
-  --bg: #f3f6f2;
+  --bg: #f6f5ee;
   --surface: #ffffff;
-  --ink: #17251e;
-  --muted: #5d6d64;
-  --line: #d9e2db;
-  --green: #1f5a40;
-  --green-soft: #e1ede5;
-  --ochre: #d9a521;
+  --ink: #24261b;
+  --muted: #6b6d5c;
+  --line: #e2e1d3;
+  --green: #5c6b2b;
+  --green-soft: #eceedd;
+  --ochre: #d4a52a;
   --ochre-ink: #3a2a00;
   --me: #2f6fe0;
   --bad: #b3261e;
@@ -18,13 +18,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #101814; --surface: #17221c; --ink: #e7efe9; --muted: #9aaba1; --line: #2a3a31;
-    --green: #7fc79f; --green-soft: #1d3127; --ochre: #e7b93f; --ochre-ink: #2a1e00; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+    --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
+    --green: #b4c27a; --green-soft: #2a2e1d; --ochre: #e7b93f; --ochre-ink: #2a1e00; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #101814; --surface: #17221c; --ink: #e7efe9; --muted: #9aaba1; --line: #2a3a31;
-  --green: #7fc79f; --green-soft: #1d3127; --ochre: #e7b93f; --ochre-ink: #2a1e00; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+  --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
+  --green: #b4c27a; --green-soft: #2a2e1d; --ochre: #e7b93f; --ochre-ink: #2a1e00; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -208,7 +208,7 @@ h2 { font-size: 17px; }
 .p-controls { display: flex; justify-content: center; align-items: center; gap: 28px; padding-top: 4px; }
 .pp {
   display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 0;
-  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(31, 90, 64, .25);
+  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(92, 107, 43, .25);
 }
 .pp svg { width: 30px; height: 30px; }
 .skip { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: none; color: var(--muted); border-radius: 50%; cursor: pointer; }

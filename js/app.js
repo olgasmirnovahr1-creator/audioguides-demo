@@ -236,7 +236,7 @@
       : "";
     const flash = state.flash ? `<p class="flash">${esc(state.flash)}</p>` : "";
     return `<header class="top">${left}${right}</header>
-      <p class="test-banner">Тестовая версия: экскурсии, цены, координаты и звук — примеры.</p>${warn}${flash}`;
+      ${warn}${flash}`;
   }
 
   // ================== Экран: главная ==================
@@ -261,7 +261,7 @@
     }).join("");
     return `${header()}
       <h1>Как хотите узнать Москву?</h1>
-      <p class="lead">Аудиоэкскурсии от аттестованного гида. Скачайте и слушайте без интернета.</p>
+      <p class="lead">Скачайте и слушайте без интернета.</p>
       <div class="tiles">${tiles}</div>
       <button class="all-link" data-go="#/all">Все экскурсии</button>
       <button class="btn secondary code-home" data-go="#/code">У меня есть код</button>

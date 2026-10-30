@@ -11,7 +11,7 @@ window.CATALOG = {
   // ПЛИТКИ НА ГЛАВНОЙ. Порядок в списке = порядок плиток.
   categories: [
     { id: "walk",    title: "Пешком",        subtitle: "Гуляю и узнаю Москву",       icon: "walk" },
-    { id: "kids",    title: "С ребёнком",    subtitle: "Квесты для детей",           icon: "kids" },
+    { id: "kids",    title: "Детские",       subtitle: "Квесты для детей",           icon: "kids" },
     { id: "scooter", title: "На самокате",   subtitle: "Катаюсь и смотрю город",     icon: "scooter" },
     { id: "bike",    title: "На велосипеде", subtitle: "Кручу педали и узнаю новое", icon: "bike" },
     { id: "run",     title: "На пробежке",   subtitle: "Спорт + история",            icon: "run" },

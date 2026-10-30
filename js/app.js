@@ -261,7 +261,7 @@
     }).join("");
     return `${header()}
       <h1>Как хотите узнать Москву?</h1>
-      <p class="lead">Скачайте и слушайте без интернета.</p>
+      <p class="lead">Включайте и слушайте без интернета</p>
       <div class="tiles">${tiles}</div>
       <button class="all-link" data-go="#/all">Все экскурсии</button>
       <button class="btn secondary code-home" data-go="#/code">У меня есть код</button>

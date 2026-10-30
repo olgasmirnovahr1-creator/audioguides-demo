@@ -1,13 +1,13 @@
 /* Макет: узкая «телефонная» колонка; главная — плитки 2 в ряд, страницы — карточки и схема маршрута.
-   Цвета: нежный шалфей + песочно-персиковый акцент, тёплый светлый фон. */
+   Цвета: фисташка + песочно-персиковый акцент, тёплый светлый фон. */
 :root {
-  --bg: #f8f7f2;
+  --bg: #f7f8f0;
   --surface: #ffffff;
   --ink: #2c2f26;
   --muted: #767a6b;
-  --line: #e6e5da;
-  --green: #6f7d55;
-  --green-soft: #eef0e6;
+  --line: #e4e9d6;
+  --green: #6e8a4b;
+  --green-soft: #edf2e2;
   --ochre: #e6c3a0;
   --ochre-ink: #4a3220;
   --me: #2f6fe0;
@@ -19,12 +19,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
-    --green: #b7c49c; --green-soft: #2a2e22; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+    --green: #b5cc8e; --green-soft: #283020; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
-  --green: #b7c49c; --green-soft: #2a2e22; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+  --green: #b5cc8e; --green-soft: #283020; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -68,7 +68,7 @@ h2 { font-size: 17px; }
 /* Главная: плитки */
 .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .tile { color: var(--ink); text-decoration: none;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 12px;
   min-height: 150px; padding: 16px; border-radius: var(--radius);
   background: var(--surface); border: 1px solid var(--line);
   text-align: left; cursor: pointer; transition: transform .15s, border-color .15s;
@@ -208,7 +208,7 @@ h2 { font-size: 17px; }
 .p-controls { display: flex; justify-content: center; align-items: center; gap: 28px; padding-top: 4px; }
 .pp {
   display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 0;
-  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(111, 125, 85, .22);
+  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(110, 138, 75, .22);
 }
 .pp svg { width: 30px; height: 30px; }
 .skip { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: none; color: var(--muted); border-radius: 50%; cursor: pointer; }

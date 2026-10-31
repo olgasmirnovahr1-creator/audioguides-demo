@@ -1,15 +1,15 @@
 /* Макет: узкая «телефонная» колонка; главная — плитки 2 в ряд, страницы — карточки и схема маршрута.
-   Цвета: фисташка + песочно-персиковый акцент, тёплый светлый фон. */
+   Цвета: песочный + мягкая фисташка в акцентах, тёплый светлый фон. */
 :root {
-  --bg: #f7f8f0;
+  --bg: #f6f0e6;
   --surface: #ffffff;
-  --ink: #2c2f26;
-  --muted: #767a6b;
-  --line: #e4e9d6;
-  --green: #6e8a4b;
-  --green-soft: #edf2e2;
-  --ochre: #e6c3a0;
-  --ochre-ink: #4a3220;
+  --ink: #2f2a22;
+  --muted: #7a6f60;
+  --line: #e6dccb;
+  --green: #9a7448;
+  --green-soft: #efe5d4;
+  --ochre: #cbd6a9;
+  --ochre-ink: #36421f;
   --me: #2f6fe0;
   --bad: #b3261e;
   --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
@@ -18,13 +18,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
-    --green: #b5cc8e; --green-soft: #283020; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+    --bg: #1a1712; --surface: #241f18; --ink: #efe8dc; --muted: #b3a690; --line: #3a3226;
+    --green: #d8b98c; --green-soft: #33291c; --ochre: #cbd6a9; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #15160f; --surface: #1e2016; --ink: #ecebdf; --muted: #a8a991; --line: #33362a;
-  --green: #b5cc8e; --green-soft: #283020; --ochre: #e6c3a0; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
+  --bg: #1a1712; --surface: #241f18; --ink: #efe8dc; --muted: #b3a690; --line: #3a3226;
+  --green: #d8b98c; --green-soft: #33291c; --ochre: #cbd6a9; --ochre-ink: #3a2616; --me: #6aa3ff; --bad: #ff8a80; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -208,7 +208,7 @@ h2 { font-size: 17px; }
 .p-controls { display: flex; justify-content: center; align-items: center; gap: 28px; padding-top: 4px; }
 .pp {
   display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 0;
-  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(110, 138, 75, .22);
+  background: var(--green); color: var(--surface); cursor: pointer; box-shadow: 0 4px 14px rgba(154, 116, 72, .22);
 }
 .pp svg { width: 30px; height: 30px; }
 .skip { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: none; color: var(--muted); border-radius: 50%; cursor: pointer; }

@@ -274,3 +274,10 @@ h2 { font-size: 17px; }
 .tile.tile-ph .tile-title { color: #fff; }
 .tile.tile-ph .tile-sub { color: rgba(255, 255, 255, .88); font-size: 13px; margin-top: 2px; }
 .tile.tile-ph:hover { transform: translateY(-2px); }
+
+/* Главная — мозаика: «Пешком» большая сверху, последняя плитка — узкая полоса на всю ширину внизу */
+.tile.tile-ph .tile-cap { height: 78px; padding: 24px 10px 0; }
+.tile.tile-ph .tile-sub { font-size: 12.5px; white-space: nowrap; }
+.tiles .tile.tile-ph { height: 150px; }
+.tiles .tile.tile-ph:first-child { grid-column: 1 / -1; height: 220px; }
+.tiles .tile.tile-ph:last-child { grid-column: 1 / -1; height: 110px; }

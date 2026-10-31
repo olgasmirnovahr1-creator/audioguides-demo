@@ -8,14 +8,14 @@
 */
 
 window.CATALOG = {
-  // ПЛИТКИ НА ГЛАВНОЙ. Порядок в списке = порядок плиток.
+  // ПЛИТКИ НА ГЛАВНОЙ. Порядок в списке = порядок плиток. photo — фото на всю плитку (без фото — иконка).
   categories: [
-    { id: "walk",    title: "Пешком",        subtitle: "Гуляю и узнаю Москву",       icon: "walk" },
-    { id: "kids",    title: "Детские",       subtitle: "Квесты для детей",           icon: "kids" },
-    { id: "scooter", title: "На самокате",   subtitle: "Катаюсь и смотрю город",     icon: "scooter" },
-    { id: "bike",    title: "На велосипеде", subtitle: "Кручу педали и узнаю новое", icon: "bike" },
-    { id: "run",     title: "На пробежке",   subtitle: "Спорт + история",            icon: "run" },
-    { id: "forest",  title: "Синрин-йоку",   subtitle: "Лесные прогулки для отдыха", icon: "forest" }
+    { id: "walk",    title: "Пешком",        subtitle: "Гуляю и узнаю Москву",       icon: "walk", photo: "media/categories/walk.jpg" },
+    { id: "kids",    title: "Детские",       subtitle: "Квесты для детей",           icon: "kids", photo: "media/categories/kids.jpg" },
+    { id: "scooter", title: "На самокате",   subtitle: "Катаюсь и смотрю город",     icon: "scooter", photo: "media/categories/scooter.jpg" },
+    { id: "bike",    title: "На велосипеде", subtitle: "Кручу педали и узнаю новое", icon: "bike", photo: "media/categories/bike.jpg" },
+    { id: "run",     title: "На пробежке",   subtitle: "Спорт + история",            icon: "run", photo: "media/categories/run.jpg" },
+    { id: "forest",  title: "Синрин-йоку",   subtitle: "Лесные прогулки для отдыха", icon: "forest", photo: "media/categories/forest.jpg" }
   ],
 
   /*

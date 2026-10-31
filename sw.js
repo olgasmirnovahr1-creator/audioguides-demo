@@ -6,7 +6,7 @@
   ВАЖНО: после изменения файлов сайта увеличь номер версии ниже (v2 → v3 и т. д.),
   иначе телефоны туристов будут показывать старую версию.
 */
-const VERSION = "v18";
+const VERSION = "v20";
 const SHELL = "shell-" + VERSION;
 const SHELL_FILES = [
   "./",
@@ -16,7 +16,10 @@ const SHELL_FILES = [
   "data/catalog.js",
   "data/test-codes.js",
   "manifest.webmanifest",
-  "icon.svg"
+  "icon.svg",
+  // фото плиток на главной — чтобы главная выглядела нормально и без интернета
+  "media/categories/walk.jpg", "media/categories/kids.jpg", "media/categories/scooter.jpg",
+  "media/categories/bike.jpg", "media/categories/run.jpg", "media/categories/forest.jpg"
 ];
 
 self.addEventListener("install", (event) => {

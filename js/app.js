@@ -254,10 +254,14 @@
   function renderHome() {
     const tiles = DATA.categories.map((c) => {
       const n = toursIn(c.id).length;
+      const text = `<span class="tile-title">${esc(c.title)}</span><span class="tile-sub">${esc(c.subtitle)}</span>`;
+      if (c.photo) { // плитка с фото на всю площадь, текст поверх
+        return `<a class="tile tile-ph" href="#/c/${c.id}" data-go="#/c/${c.id}">
+          <img src="${esc(c.photo)}" alt="" loading="lazy"><span class="tile-cap">${text}</span></a>`;
+      }
       return `<a class="tile" href="#/c/${c.id}" data-go="#/c/${c.id}">
         ${icon(c.icon, "tile-icon")}
-        <span><span class="tile-title">${esc(c.title)}</span><br><span class="tile-sub">${esc(c.subtitle)}</span>
-        <span class="tile-count">${n} ${plural(n, "экскурсия", "экскурсии", "экскурсий")}</span></span></a>`;
+        <span>${text}<span class="tile-count">${n} ${plural(n, "экскурсия", "экскурсии", "экскурсий")}</span></span></a>`;
     }).join("");
     return `${header()}
       <h1>Как хотите узнать Москву?</h1>

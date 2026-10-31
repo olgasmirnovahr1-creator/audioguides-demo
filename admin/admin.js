@@ -296,6 +296,10 @@
         <label class="field"><span>Подпись</span><input data-c="subtitle" value="${esc(c.subtitle)}"></label>
         <label class="field"><span>Иконка</span><select data-c="icon">${Object.entries(ICONS).map(([k, v]) => `<option value="${k}" ${c.icon === k ? "selected" : ""}>${v}</option>`).join("")}</select></label>
         <label class="field"><span>Адрес (латиницей)</span><input data-c="id" value="${esc(c.id)}"></label>
+        <div class="field"><span>Фото на всю плитку (без фото — иконка)</span>
+          <div class="file-row">${c.photo ? `<img src="${esc(src(c.photo))}" alt="">` : ""}
+            <label class="small-btn">${c.photo ? "Заменить" : "Загрузить"}<input type="file" hidden accept="image/*" data-cat-photo="${i}"></label>
+            ${c.photo ? `<button class="small-btn" type="button" data-act="cat-photo-clear">Убрать</button>` : ""}</div></div>
       </div>
       <span class="stop-tools"><button class="icon-btn" data-act="cat-up" ${i === 0 ? "disabled" : ""} aria-label="Выше">↑</button>
       <button class="icon-btn" data-act="cat-down" ${i === list.length - 1 ? "disabled" : ""} aria-label="Ниже">↓</button>
@@ -457,6 +461,7 @@
         if (act === "cat-up") [list[ci - 1], list[ci]] = [list[ci], list[ci - 1]];
         if (act === "cat-down") [list[ci + 1], list[ci]] = [list[ci], list[ci + 1]];
         if (act === "cat-del") list.splice(ci, 1);
+        if (act === "cat-photo-clear") delete list[ci].photo;
         if (act === "cat-add") list.push({ id: "new-" + (list.length + 1), title: "Новая плитка", subtitle: "", icon: "walk" });
         if (act === "cat-save") {
           list.forEach((c) => { if (!/^[a-z0-9-]{2,30}$/.test(c.id) || !c.title) throw new Error("У каждой плитки нужно название и адрес латиницей"); });
@@ -508,6 +513,14 @@
           : await api("POST", "/admin/upload?name=" + encodeURIComponent(file.name), file, true);
         S.draft.stops[i][kind] = r.url;
         keepScroll(() => { root.innerHTML = renderTourEdit(); });
+      } else if (el.matches("[data-cat-photo]") && el.files[0]) {
+        readCategories();
+        const file = el.files[0], ci = Number(el.getAttribute("data-cat-photo"));
+        const r = S.demo ? await api("POST", "/admin/upload", file)
+          : await api("POST", "/admin/upload?name=" + encodeURIComponent(file.name), file, true);
+        S.data.categories[ci].photo = r.url;
+        flash("Фото загружено. Не забудьте «Сохранить плитки».");
+        keepScroll(() => { root.innerHTML = renderCategories(); });
       } else if (el.id === "gpx-in" && el.files[0]) {
         readForm();
         const doc = new DOMParser().parseFromString(await el.files[0].text(), "application/xml");

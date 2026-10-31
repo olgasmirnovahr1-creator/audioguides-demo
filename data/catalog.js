@@ -12,7 +12,7 @@ window.CATALOG = {
   categories: [
     { id: "walk",    title: "Пешком",        subtitle: "Гуляю и узнаю Москву",       icon: "walk", photo: "media/categories/walk.jpg" },
     { id: "bike",    title: "На велосипеде", subtitle: "Кручу педали с пользой", icon: "bike", photo: "media/categories/bike.jpg" },
-    { id: "kids",    title: "С ребенком", subtitle: "Квесты",           icon: "kids", photo: "media/categories/kids.jpg" },
+    { id: "kids",    title: "Квесты с ребенком", subtitle: "Квесты для детей",           icon: "kids", photo: "media/categories/kids.jpg" },
     { id: "scooter", title: "На самокате",   subtitle: "Катаюсь и смотрю",     icon: "scooter", photo: "media/categories/scooter.jpg" },
     { id: "run",     title: "На пробежке",   subtitle: "Спорт + история",            icon: "run", photo: "media/categories/run.jpg" },
     { id: "forest",  title: "Синрин-йоку",   subtitle: "Антистресс прогулки", icon: "forest", photo: "media/categories/forest.jpg" }

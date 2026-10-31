@@ -283,14 +283,11 @@ h2 { font-size: 17px; }
 .tiles .tile.tile-ph:last-child { grid-column: 1 / -1; height: 110px; }
 
 /* Главная: только крупные названия, среднее затемнение.
-   У «С ребенком» и «Синрин-йоку» мелкая подпись стоит справа от названия в той же строке. */
-.tile.tile-ph .tile-cap { height: 64px; padding: 0 12px 14px; display: flex; flex-direction: column; justify-content: flex-end;
+   У «Синрин-йоку» мелкая подпись стоит справа от названия в той же строке. */
+.tile.tile-ph .tile-cap { height: 64px; padding: 0 10px 14px; display: flex; flex-direction: column; justify-content: flex-end;
   background: linear-gradient(to top, rgba(15,20,10,.55) 35%, rgba(15,20,10,0)); }
+.tile.tile-ph .tile-title { font-size: 15.5px; white-space: nowrap; }
 .tile.tile-ph .tile-title, .tile.tile-ph .tile-sub { text-shadow: 0 1px 4px rgba(0,0,0,.5); }
 .tile.tile-ph .tile-sub { display: none; }
-.tiles .tile.tile-ph[href="#/c/kids"] .tile-cap,
 .tiles .tile.tile-ph[href="#/c/forest"] .tile-cap { flex-direction: row; flex-wrap: wrap; align-content: flex-end; align-items: baseline; justify-content: flex-start; gap: 10px; }
-.tiles .tile.tile-ph[href="#/c/kids"] .tile-sub,
 .tiles .tile.tile-ph[href="#/c/forest"] .tile-sub { display: block; font-size: 15px; margin: 0; }
-.tiles .tile.tile-ph[href="#/c/kids"] .tile-cap { gap: 5px; padding-right: 6px; }
-.tiles .tile.tile-ph[href="#/c/kids"] .tile-sub { font-size: 13px; text-transform: lowercase; }

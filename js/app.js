@@ -266,9 +266,9 @@
     return `${header()}
       <h1>Как хотите узнать Москву?</h1>
       <p class="lead">Включайте и слушайте без интернета</p>
+      ${installBlock()}
       <div class="tiles">${tiles}</div>
-      <button class="all-link" data-go="#/all">Все экскурсии</button>
-      ${installBlock()}`;
+      <button class="all-link" data-go="#/all">Все экскурсии</button>`;
   }
 
   // ================== Экран: список экскурсий ==================

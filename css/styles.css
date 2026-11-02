@@ -168,7 +168,7 @@ h2 { font-size: 17px; }
   margin: 0 0 16px; padding: 14px; border-radius: var(--radius); font-size: 14px;
   background: #ecf6e1; border: 1px solid #bfe09c; color: var(--ink);
 }
-.install .btn { background: #55A62B; border-color: #55A62B; color: #fff; }
+.install .btn { background: #6CBF3A; border-color: #6CBF3A; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
 @media (prefers-color-scheme: dark) { .install { background: #22301a; border-color: #46692c; } }
 .install span { flex: 1 1 220px; min-width: 0; }
 .saved { color: var(--green); font-weight: 600; }

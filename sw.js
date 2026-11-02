@@ -6,7 +6,7 @@
   ВАЖНО: после изменения файлов сайта увеличь номер версии ниже (v2 → v3 и т. д.),
   иначе телефоны туристов будут показывать старую версию.
 */
-const VERSION = "v26";
+const VERSION = "v28";
 const SHELL = "shell-" + VERSION;
 const SHELL_FILES = [
   "./",
@@ -72,6 +72,8 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (url.origin !== location.origin) return;
+  // Админку и запросы к серверу не трогаем — они всегда идут напрямую
+  if (url.pathname.includes("/admin") || url.pathname.includes("/api/")) return;
 
   event.respondWith((async () => {
     // Скачанные экскурсии и сохранённый сайт
@@ -83,7 +85,7 @@ self.addEventListener("fetch", (event) => {
       // Сайт: сначала пробуем свежую версию из сети (не дольше 3 секунд, мимо кэша браузера), без сети — сохранённую
       try {
         const res = await Promise.race([fetch(req.url, { cache: "no-cache" }), new Promise((_, no) => setTimeout(() => no(new Error("долго")), 3000))]);
-        if (res.ok) { const copy = res.clone(); caches.open(SHELL).then((c) => c.put(req, copy)); return res; }
+        if (res.ok && !res.redirected) { const copy = res.clone(); caches.open(SHELL).then((c) => c.put(req, copy)); return res; }
       } catch (e) { /* нет сети — берём сохранённое */ }
       if (hit) return hit;
     }
